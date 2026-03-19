@@ -26,4 +26,6 @@
 -- This page will show all the sources used in the project in APA citation.
 
 ### Wireframe:
-#### ![Homepage](assets/Pages.png)
+#### ![Homepage](/public/assets/Pages.png)
+
+# FINAL MODIFICATION PROPOSAL
