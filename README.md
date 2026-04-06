@@ -36,3 +36,4 @@
 -- In multiple pages, we will add the ability to favorite maps/agents/add notes. Eg: In the agents page we will allow you to favorite agents, and add notes to the favorited agents (and to unfavorited agents as well.) This data will be stored and you will be able to delete it as well to edit your notes, favorites, etc.
 
 ### Wireframe:
+#### ![CRUD](/public/assets/Wireframe2.png)
