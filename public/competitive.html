@@ -4,9 +4,9 @@
   <!-- Required meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="VALORANT competitive ranks from Iron to Radiant.">
+  <meta name="description" content="Complete list of all 28 VALORANT agents categorized by role.">
 
-  <title>Valofy — Home</title>
+  <title>Valofy — Agents</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/Logo.png">
@@ -38,135 +38,390 @@
     </div>
   </header>
 
-  <!-- Ranks -->
+
+  <!-- Hero Section -->
   <section class="hero" style="background-image: url('assets/Valorant.jpg');">
     <div class="hero-inner">
-      <p class="kicker">Ranked Mode</p>
-      <h2>Competitive Ranks</h2>
+      <p class="kicker">Agents? What are those?</p>
+      <h2>Agents List</h2>   
     </div>
   </section>
 
+  <!-- Main Content -->
   <main class="container">
 
     <div class="panel">
-      <h3 class="large-title">All 9 Ranks</h3>
-      <p class="lead">
-        In Valorant, there are 9 ranks in the competitive mode. 
-        The ranks are Iron, Bronze, Silver, Gold, Platinum, Diamond, Ascendant, Immortal, and Radiant. 
-        The higher the rank, the more competitive the players are. <br><br>
-        Hover over each rank card to see a brief description of the skill level and gameplay of players in that rank.
+      <h3 class="large-title center">Agent Overview</h3>
+      <p class="lead center">
+        In Valorant, there are 28 total agents, each with their own unique abilities. 
+        Sometimes it can get confusing, so here are all 28 agents. Hover over each agent card to see a brief description of their playstyle and role.
+      </p>
     </div>
 
+    <!-- agent grid -->
     <div class="panel">
       <div class="grid-index">
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Iron.webp" alt="Iron">
+        <!-- agent cards -->
+        <div class="card2" data-agent="Jett">
+          <button class="fav-btn">☆ Favorite</button>
+          <button class="clear-notes-btn" title="Clear notes">✕</button>
+          <textarea class="note-input" placeholder="Add notes..."></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Jett.png" alt="Jett">
+          </div>
+          <h3>Jett</h3>
+          <span class="role-badge">Duelist</span>
+          <p class="small">
+            Agile fighter who excels at entry fragging using speed and vertical mobility.
+          </p>
+        </div>
+
+        <div class="card2" data-agent="Phoenix">
+        <button class="fav-btn">☆ Favorite</button>
+        <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Phoenix.png" alt="Phoenix">
   </div>
-  <h3>Iron</h3>
+  <h3>Phoenix</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    Entry-level rank where players are still learning core mechanics and map fundamentals.
+    Self-sustaining duelist who uses fire abilities to heal himself and control fights.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Bronze.webp" alt="Bronze">
+<div class="card2" data-agent="Reyna">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Reyna.png" alt="Reyna">
   </div>
-  <h3>Bronze</h3>
+  <h3>Reyna</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    Players begin improving aim and basic teamwork but consistency is still developing.
+    Aggressive snowball duelist who thrives on eliminations to power her abilities.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Silver.webp" alt="Silver">
+<div class="card2" data-agent="Raze">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Raze.png" alt="Raze">
   </div>
-  <h3>Silver</h3>
+  <h3>Raze</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    More structured gameplay with better aim and improved understanding of strategies.
+    Explosive duelist specializing in area damage and chaotic entry plays.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Gold.webp" alt="Gold">
+<div class="card2" data-agent="Yoru">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Yoru.png" alt="Yoru">
   </div>
-  <h3>Gold</h3>
+  <h3>Yoru</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    Solid mechanical skills and game sense, though decision-making can still be inconsistent.
+    Stealthy duelist who uses deception and teleportation to outplay enemies.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Platinum.webp" alt="Platinum">
+<div class="card2" data-agent="Neon">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Neon.png" alt="Neon">
   </div>
-  <h3>Platinum</h3>
+  <h3>Neon</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    Strong aim and teamwork with a deeper understanding of map control and utility usage.
+    High-speed duelist who overwhelms opponents with lightning-fast movement.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Diamond.webp" alt="Diamond">
+<div class="card2" data-agent="Iso">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Iso.png" alt="Iso">
   </div>
-  <h3>Diamond</h3>
+  <h3>Iso</h3>
+  <span class="role-badge">Duelist</span>
   <p class="small">
-    Highly skilled players with refined mechanics, positioning, and coordinated strategies.
+    Precision duelist who isolates enemies and thrives in controlled duels.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Ascendant.png" alt="Ascendant">
+<div class="card2" data-agent="Clove">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Clove.png" alt="Clove">
   </div>
-  <h3>Ascendant</h3>
+  <h3>Clove</h3>
+  <span class="role-badge">Controller</span>
   <p class="small">
-    Advanced competitive tier bridging elite players and the highest levels of ranked play.
+    Aggressive controller who can continue supporting the team even after being eliminated.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Immortal.webp" alt="Immortal">
+<div class="card2" data-agent="Omen">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Omen.png" alt="Omen">
   </div>
-  <h3>Immortal</h3>
+  <h3>Omen</h3>
+  <span class="role-badge">Controller</span>
   <p class="small">
-    Top-tier players with exceptional mechanics, strong communication, and elite consistency.
+    Tactical smoker capable of teleporting and blocking enemy vision.
   </p>
 </div>
 
-<div class="card2">
-  <div class="img-wrapper2">
-    <img src="assets/Radiant.webp" alt="Radiant">
+<div class="card2" data-agent="Brimstone">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Brimstone.png" alt="Brimstone">
   </div>
-  <h3>Radiant</h3>
+  <h3>Brimstone</h3>
+  <span class="role-badge">Controller</span>
   <p class="small">
-    The highest rank in VALORANT, reserved for the absolute best players in each region.
+    Strategic controller who uses orbital smokes and area denial tools.
   </p>
 </div>
 
+<div class="card2" data-agent="Viper">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Viper.png" alt="Viper">
+  </div>
+  <h3>Viper</h3>
+  <span class="role-badge">Controller</span>
+  <p class="small">
+    Toxic controller who dominates areas with poison-based utility.
+  </p>
+</div>
+
+<div class="card2" data-agent="Astra">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Astra.png" alt="Astra">
+  </div>
+  <h3>Astra</h3>
+  <span class="role-badge">Controller</span>
+  <p class="small">
+    Cosmic controller who manipulates the battlefield using global star placements.
+  </p>
+</div>
+
+<div class="card2" data-agent="Harbor">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Harbor.png" alt="Harbor">
+  </div>
+  <h3>Harbor</h3>
+  <span class="role-badge">Controller</span>
+  <p class="small">
+    Water-based controller who blocks sightlines with flowing barriers.
+  </p>
+</div>
+
+<div class="card2" data-agent="Miks">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Miks.png" alt="Miks">
+  </div>
+  <h3>Miks</h3>
+  <span class="role-badge">Controller</span>
+  <p class="small">
+    Support-controller who controls space while helping teammates.
+  </p>
+</div>
+
+<div class="card2" data-agent="Sova">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Sova.png" alt="Sova">
+  </div>
+  <h3>Sova</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Recon specialist who gathers intel using scouting tools and tracking arrows.
+  </p>
+</div>
+
+<div class="card2" data-agent="Breach">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Breach.png" alt="Breach">
+  </div>
+  <h3>Breach</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Aggressive initiator who disrupts enemies with powerful concussive blasts.
+  </p>
+</div>
+
+<div class="card2" data-agent="Skye">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Skye.png" alt="Skye">
+  </div>
+  <h3>Skye</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Support initiator who uses wildlife abilities to gather intel and heal teammates.
+  </p>
+</div>
+
+<div class="card2" data-agent="KAY/O">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/KAYO.png" alt="KAY/O">
+  </div>
+  <h3>KAY/O</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Suppression-based initiator who disables enemy abilities.
+  </p>
+</div>
+
+<div class="card2" data-agent="Fade">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Fade.png" alt="Fade">
+  </div>
+  <h3>Fade</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Fear-based initiator who tracks and hunts enemies using nightmare abilities.
+  </p>
+</div>
+
+<div class="card2" data-agent="Gekko">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Gekko.png" alt="Gekko">
+  </div>
+  <h3>Gekko</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Creature-controlling initiator who deploys companions for utility and disruption.
+  </p>
+</div>
+
+<div class="card2" data-agent="Tejo">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Tejo.png" alt="Tejo">
+  </div>
+  <h3>Tejo</h3>
+  <span class="role-badge">Initiator</span>
+  <p class="small">
+    Tactical initiator who uses advanced tech to reveal and pressure opponents.
+  </p>
+</div>
+
+<div class="card2" data-agent="Sage">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Sage.png" alt="Sage">
+  </div>
+  <h3>Sage</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Defensive support agent capable of healing and reviving teammates.
+  </p>
+</div>
+
+<div class="card2" data-agent="Cypher">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Cypher.png" alt="Cypher">
+  </div>
+  <h3>Cypher</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Surveillance sentinel who locks down sites with traps and cameras.
+  </p>
+</div>
+
+<div class="card2" data-agent="Killjoy">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Killjoy.png" alt="Killjoy">
+  </div>
+  <h3>Killjoy</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Tech-savvy sentinel who defends areas using automated gadgets.
+  </p>
+</div>
+
+<div class="card2" data-agent="Chamber">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/chamber.png" alt="Chamber">
+  </div>
+  <h3>Chamber</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Weapon-focused sentinel who excels at precision and map control.
+  </p>
+</div>
+
+<div class="card2" data-agent="Deadlock">
+<button class="fav-btn">☆ Favorite</button>
+<textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Deadlock.png" alt="Deadlock">
+  </div>
+  <h3>Deadlock</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Defensive sentinel who restricts enemy movement with high-tech barriers.
+  </p>
+</div>
+
+<div class="card2" data-agent="Veto">
+  <button class="fav-btn">☆ Favorite</button>
+  <textarea class="note-input" placeholder="Add notes..."></textarea>
+  <div class="img-wrapper">
+    <img src="assets/Veto.png" alt="Veto">
+  </div>
+  <h3>Veto</h3>
+  <span class="role-badge">Sentinel</span>
+  <p class="small">
+    Defensive sentinel who deactivates enemy abilities through tools, and teleports.
+  </p>
+</div>
       </div>
-    </div>
-
-    <div class="panel">
-    <h3 class="large-title">Tips on Climbing the Ranks</h3>
-      <p class="lead">
-        If you are struggling to climb the ranks, here is a video from Konpeki (2025) to help you improve your gameplay and get to your dream rank.
-      </p><br>
-
-      <center><iframe width="900" height="720" src="https://www.youtube.com/embed/DY6EYg4AJCg"></iframe></center>
-
     </div>
 
   </main>
 
+  <script src="script.js"></script>
 
-
+  <!-- Footer -->
   <footer class="footer">
     <div class="small">Copyright: Crisostomo, Lozano — &copy 2025</div>
     <div class="citation">
@@ -175,4 +430,7 @@
   </footer>
 
 </body>
+
+</script>
+
 </html>

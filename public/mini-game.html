@@ -1,28 +1,27 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Mini trivia quiz" />
-  <meta name="keywords" content="quiz, trivia, valorant, mini-game" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Agent Roles: Duelist, Controller, Initiator, Sentinel — how to play each role." />
+  <meta name="keywords" content="duelist, controller, initiator, sentinel, valorant roles" />
   <meta name="author" content="Imanuel Crisostomo, MJ Lozano" />
   <meta name="theme-color" content="#0b1115" />
 
-  <title>Mini-Game — Valorant Trivia</title>
-  <link rel="icon" type="image/png" href="/mnt/data/5341e31d-3831-4588-968b-e5bcf50d42bd.png">
-  <link rel="stylesheet" href="styles.css">
+  <title>Agent Roles — Valofy</title>
   <link rel="icon" type="image/png" href="assets/Logo.png">
-  <!-- script.js  -->
+  <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-inner container">
-      <div class="brand">
+    <header class="header">
+        <div class="header-inner container">
+        <div class="brand">
         <img src="assets/Logo.png" alt="Valofy logo" width="40" height="40">
         <h1>VALOFY</h1>
       </div>
 
-      <!-- Navigation links -->
+    <!-- Navigation links -->
       <nav id="mainnav" class="nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="roles.html">Agent Roles</a>
@@ -30,28 +29,62 @@
         <a href="maps.html">Maps</a>
         <a href="competitive.html">Competitive</a>
         <a href="mini-game.html" class="js">Trivia Quiz</a>
-        <a href="sources.html">Sources</a>
+        <a href="login.html">Log In</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero" style="background-image:url('assets/Valorant.jpg');height:200px">
-      <div class="hero-inner"><h2>Trivia Mini-Game</h2><p class="kicker">Test your Valorant knowledge</p></div>
+    <section class="hero" style="background-image:url('assets/Yoru.png');height:300px">
+      <div class="hero-inner"><h2>Agent Roles</h2><p class="kicker">What each role does</p></div>
     </section>
 
     <div class="container">
-      <section class="panel quiz-box">
-        <!-- quiz ui -->
-        <div id="quiz">
-          <div id="question" class="question">Question will appear here</div>
-          <div id="answers" class="answers"></div>
-          <div id="playerName" style="margin-bottom:8px;font-weight:bold;"></div>
-          <div class="result" id="result" aria-live="polite"></div>
-          <div style="margin-top:12px;">
-            <button id="next" class="js" style="background:var(--accent)">Next</button>
-            <button id="restart" class="js" style="background:transparent;border:2px solid rgba(255,255,255,0.06);margin-left:8px">Restart</button>
-          </div>
+      <section class="panel">
+      <h3 class="large-title">4 Main Roles</h3><br>
+
+  <div class="grid-roles">
+
+    <div class="card">
+      <img src="assets/DuelistClassSymbol.png" width="40" height="40" alt="Duelist Icon">
+      <h3>Duelist</h3>
+      <p class="lead">Primary fraggers who create space and secure early kills. Play aggressively with utility and entries.</p>
+      <!-- DUELIST IMAGE - NEON --> <img src="assets/NeonHeadshot.png" height="200" alt="SiXSevEn" class="card-img-bottom">
+    </div>
+
+
+    <div class="card">
+      <img src="assets/ControllerClassSymbol.png" width="40" height="40" alt="Controller Icon">
+      <h3>Controller</h3>
+      <p class="lead">Map control specialists who smoke and block lines of sight for site executes.</p>
+      <!-- CONTROLLER IMAGE - CLOVE --> <br></br> <img src="assets/CloveHeadshot.png" height="200" alt="SiXSevEnFoUrONe" class="card-img-bottom">
+    </div>
+
+    <div class="card">
+      <img src="assets/InitiatorClassSymbol.png" width="40" height="40" alt="Initiator Icon">
+      <h3>Initiator</h3>
+      <p class="lead">Open fights and gather intel using recon and flashes to enable teammates to push.</p>
+      <!-- INITIATOR IMAGE - SOVA --> <br></br> <img src="assets/SovaHeadshot.png" height="200" alt="SiXSevEnFoUrONe" class="card-img-bottom">
+    </div>
+
+    <div class="card">
+      <img src="assets/SentinelClassSymbol.png" width="40" height="40" alt="Sentinel Icon">
+      <h3>Sentinel</h3>
+      <p class="lead">Defensive anchors who lock down sites with traps/heals and support retakes.</p>
+      <!-- SENTINEL IMAGE - DEADLOCK --> <br></br> <img src="assets/DeadlockHeadshot.png" height="200" alt="SiXSevEnFoUrONe" class="card-img-bottom">
+    </div>
+
+  </div>
+</section>
+
+
+      <section class="panel">
+        <h3 class="large-title">Role Tips</h3><br>
+        <div class="grid-roles">
+          <div class="card"><h3>Team balance</h3><p>Healthy teams generally include a mix of roles; Controllers shape rounds, Duelists find frags, Initiators gather info, and Sentinels hold the team together.</p></div>
+          <div class="card"><h3>Communication</h3><p>Clear, short callouts and utility timing make role execution effective. Call for utility as entering or retaking a site. Coordinate ability buys and ultimates — don't waste expensive utility early.</p></div>
+          <div class="card"><h3>Potential</h3><p>Don't let your role hold you back. Not only duelists get frags. Utility should help you instead of holding you back</p></div>
+          <div class="card"><h3>Confidence</h3><p>Be confident in the role you play.</p></div>
         </div>
       </section>
     </div>
@@ -63,15 +96,5 @@
         <div class="small">Back to <a href="index.html">Home</a></div>
     </div>
   </footer>
-
-  <!-- Initialize the quiz -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      // init the quiz on this page
-      if(typeof ValorantQuiz !== 'undefined' && ValorantQuiz.init){
-        ValorantQuiz.init();
-      }
-    });
-  </script>
 </body>
 </html>
