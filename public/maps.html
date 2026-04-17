@@ -4,7 +4,7 @@
   <!-- Required meta tags -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="All VALORANT maps including competitive and non-competitive maps.">
+  <meta name="description" content="All VALORANT maps including competitive and non-competitive maps with favorite and notes feature.">
 
   <title>Valofy — Maps</title>
 
@@ -13,6 +13,166 @@
 
   <!-- External stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Additional styles for Maps favorite feature - matching agents page styling */
+    .card.map-card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 14px;
+    }
+    
+    .card.map-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Gold border for favorited maps - same as agents page */
+    .card.map-card.favorited {
+      border: 3px solid gold;
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+      position: relative;
+    }
+    
+    /* Favorite button styling - matches agents page */
+    .fav-btn-map {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 20px;
+      z-index: 10;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    
+    .fav-btn-map:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.05);
+    }
+    
+    /* Notes textarea styling - matches agents page */
+    .note-input-map {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      height: 60px;
+      resize: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 6px 8px;
+      font-size: 11px;
+      background: rgba(30, 30, 35, 0.95);
+      color: #f0f0f0;
+      font-family: system-ui, sans-serif;
+      backdrop-filter: blur(4px);
+      transition: border 0.2s ease;
+      z-index: 10;
+    }
+    
+    .note-input-map:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(20, 20, 25, 0.98);
+    }
+    
+    /* Ensure image wrapper has proper dimensions and positioning context */
+    .card.map-card .img-wrapper {
+      height: 200px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    
+    .card.map-card .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .card.map-card:hover .img-wrapper img {
+      transform: scale(1.05);
+    }
+    
+    .card.map-card h3 {
+      color: var(--bg);
+      font-size: 18px;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    
+    /* Small description text for maps */
+    .map-description {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    
+    /* Sort bar for favorites */
+    .favorites-sort-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .sort-btn {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 16px;
+      border-radius: 24px;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .sort-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .favorites-stats {
+      background: rgba(224, 75, 85, 0.15);
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+    
+    /* Make cards grid responsive */
+    @media (max-width: 768px) {
+      .card.map-card .img-wrapper {
+        height: 160px;
+      }
+      .note-input-map {
+        font-size: 10px;
+        height: 50px;
+      }
+      .fav-btn-map {
+        padding: 4px 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -51,101 +211,121 @@
     <div class="panel">
       <h3 class="large-title">Competitive Maps</h3>
       <p class="lead">
-        In Valorant, there are several maps in the game. Here are all the maps below. You can right click to open the image in a new tab.
+        In Valorant, there are several maps in the game. Here are all the maps below. 
+        You can <strong>favorite maps</strong> by clicking the ☆ button on each card, and add personal notes! 
       </p>
-
-
     </div>
 
     <div class="panel">
     
-      <div class="grid-index">
+      <div class="grid-index" id="mapsGrid">       
+        <div class="card map-card" data-map="Ascent">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Ascent.webp" alt="Ascent">
+          </div>
+          <h3>Ascent</h3>
+          <div class="map-description">Open mid area with two bomb sites. Classic competitive map with tight chokepoints and long sightlines.</div>
+        </div>
 
-        <!-- Competitive Maps -->
-        <div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Ascent.webp" alt="Ascent">
-  </div>
-  <h3>Ascent</h3>
-</div>
+        <div class="card map-card" data-map="Bind">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Bind.webp" alt="Bind">
+          </div>
+          <h3>Bind</h3>
+          <div class="map-description">No mid area, two sites connected by teleporters. Fast rotations and unique angles.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Bind.webp" alt="Bind">
-  </div>
-  <h3>Bind</h3>
-</div>
+        <div class="card map-card" data-map="Haven">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Haven.webp" alt="Haven">
+          </div>
+          <h3>Haven</h3>
+          <div class="map-description">Three bomb sites! Requires versatile strategies and good map control across multiple lanes.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Haven.webp" alt="Haven">
-  </div>
-  <h3>Haven</h3>
-</div>
+        <div class="card map-card" data-map="Split">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Split.webp" alt="Split">
+          </div>
+          <h3>Split</h3>
+          <div class="map-description">Vertical map with ropes and elevated areas. Close-quarters combat and quick peeks.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Split.webp" alt="Split">
-  </div>
-  <h3>Split</h3>
-</div>
+        <div class="card map-card" data-map="Lotus">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Lotus2.webp" alt="Lotus">
+          </div>
+          <h3>Lotus</h3>
+          <div class="map-description">Three-site map with rotating doors and a destructible wall. Ancient ruins theme.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Lotus2.webp" alt="Lotus">
-  </div>
-  <h3>Lotus</h3>
-</div>
+        <div class="card map-card" data-map="Sunset">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Sunset.webp" alt="Sunset">
+          </div>
+          <h3>Sunset</h3>
+          <div class="map-description">Urban Los Angeles setting. Multiple elevation changes and aggressive playstyle opportunities.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Sunset.webp" alt="Sunset">
-  </div>
-  <h3>Sunset</h3>
-</div>
+        <div class="card map-card" data-map="Icebox">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Icebox.webp" alt="Icebox">
+          </div>
+          <h3>Icebox</h3>
+          <div class="map-description">Arctic map with vertical ziplines and containers. Long sightlines and unique plant spots.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Icebox.webp" alt="Icebox">
-  </div>
-  <h3>Icebox</h3>
-</div>
+        <div class="card map-card" data-map="Breeze">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Breeze.webp" alt="Breeze">
+          </div>
+          <h3>Breeze</h3>
+          <div class="map-description">Tropical paradise with wide open spaces. Long-range engagements dominate here.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Breeze.webp" alt="Breeze">
-  </div>
-  <h3>Breeze</h3>
-</div>
+        <div class="card map-card" data-map="Fracture">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Fracture.webp" alt="Fracture">
+          </div>
+          <h3>Fracture</h3>
+          <div class="map-description">H-shaped map with defenders split. Unique ziplines and aggressive attack routes.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Fracture.webp" alt="Fracture">
-  </div>
-  <h3>Fracture</h3>
-</div>
+        <div class="card map-card" data-map="Pearl">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Pearl.webp" alt="Pearl">
+          </div>
+          <h3>Pearl</h3>
+          <div class="map-description">Underwater Omega Earth city. Classic layout with focus on mid control.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Pearl.webp" alt="Pearl">
-  </div>
-  <h3>Pearl</h3>
-</div>
+        <div class="card map-card" data-map="Abyss">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Abyss.jpg" alt="Abyss">
+          </div>
+          <h3>Abyss</h3>
+          <div class="map-description">Floating castle map with death pits. High-risk high-reward plays near edges.</div>
+        </div>
 
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Abyss.jpg" alt="Abyss">
-  </div>
-  <h3>Abyss</h3>
-</div>
-
-<div class="card">
-  <div class="img-wrapper">
-    <img src="assets/Corrode.webp" alt="Corrode">
-  </div>
-  <h3>Corrode</h3>
-</div>
-
+        <div class="card map-card" data-map="Corrode">
+          <textarea class="note-input-map" placeholder="Add notes about this map... (e.g., strategies, lineups)"></textarea>
+          <div class="img-wrapper">
+            <img src="assets/Corrode.webp" alt="Corrode">
+          </div>
+          <h3>Corrode</h3>
+          <div class="map-description">Industrial decay map with toxic elements. Experimental layout for tactical plays.</div>
+        </div>
       </div>
     </div> 
 
@@ -157,6 +337,7 @@
         <div class="small">Back to <a href="index.html">Home</a></div>
     </div>
   </footer>
-
+  
+  <script src="script.js"></script>
 </body>
 </html>

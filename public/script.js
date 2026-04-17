@@ -106,3 +106,194 @@ const ValorantQuiz = (function(){
   return { init: init };
 
 })();
+
+/* ---------- Agents Favorites and Notes (used only on agents.html) ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector(".grid-index");
+  if (!grid) return; // Only run on pages with .grid-index
+
+  const cards = document.querySelectorAll(".card, .card2");
+
+  // CRUD Data Manager
+  const DataManager = {
+    favorites: JSON.parse(localStorage.getItem("valofy_favorites")) || [],
+    notes: JSON.parse(localStorage.getItem("valofy_notes")) || {},
+
+    // CREATE
+    addFavorite(agent) {
+      if (!this.favorites.includes(agent)) {
+        this.favorites.push(agent);
+        this.save();
+      }
+    },
+
+    addNote(agent, text) {
+      this.notes[agent] = text;
+      this.save();
+    },
+
+    // READ
+    isFavorite(agent) {
+      return this.favorites.includes(agent);
+    },
+
+    getNote(agent) {
+      return this.notes[agent] || "";
+    },
+
+    getAllFavorites() {
+      return [...this.favorites];
+    },
+
+    getAllNotes() {
+      return { ...this.notes };
+    },
+
+    // UPDATE
+    updateNote(agent, text) {
+      this.notes[agent] = text;
+      this.save();
+    },
+
+    // DELETE
+    removeFavorite(agent) {
+      this.favorites = this.favorites.filter(a => a !== agent);
+      this.save();
+    },
+
+    clearNote(agent) {
+      delete this.notes[agent];
+      this.save();
+    },
+
+    clearAllFavorites() {
+      this.favorites = [];
+      this.save();
+    },
+
+    clearAllNotes() {
+      this.notes = {};
+      this.save();
+    },
+
+    // PERSIST
+    save() {
+      localStorage.setItem("valofy_favorites", JSON.stringify(this.favorites));
+      localStorage.setItem("valofy_notes", JSON.stringify(this.notes));
+    },
+
+    // EXPORT/IMPORT
+    exportData() {
+      return {
+        favorites: this.favorites,
+        notes: this.notes,
+        exportDate: new Date().toISOString()
+      };
+    },
+
+    importData(data) {
+      if (data.favorites) this.favorites = data.favorites;
+      if (data.notes) this.notes = data.notes;
+      this.save();
+    }
+  };
+
+  // Initialize cards with CRUD operations
+  cards.forEach(card => {
+    const titleElm = card.querySelector("h3");
+    const agent = card.dataset.agent || titleElm?.textContent.trim();
+    if (!agent) return;
+    if (!card.dataset.agent) card.dataset.agent = agent;
+
+    let favBtn = card.querySelector(".fav-btn");
+    let noteInput = card.querySelector(".note-input");
+    let clearBtn = card.querySelector(".clear-notes-btn");
+    let buttonGroup = card.querySelector(".button-group");
+
+    if (!buttonGroup) {
+      buttonGroup = document.createElement("div");
+      buttonGroup.className = "button-group";
+      card.insertBefore(buttonGroup, card.firstChild);
+    }
+
+    if (!favBtn) {
+      favBtn = document.createElement("button");
+      favBtn.className = "fav-btn";
+      favBtn.textContent = "☆ Favorite";
+      buttonGroup.appendChild(favBtn);
+    } else if (favBtn.parentNode !== buttonGroup) {
+      buttonGroup.appendChild(favBtn);
+    }
+
+    if (!clearBtn) {
+      clearBtn = document.createElement("button");
+      clearBtn.className = "clear-notes-btn";
+      clearBtn.title = "Clear notes";
+      clearBtn.textContent = "✕";
+      buttonGroup.appendChild(clearBtn);
+    } else if (clearBtn.parentNode !== buttonGroup) {
+      buttonGroup.appendChild(clearBtn);
+    }
+
+    if (!noteInput) {
+      noteInput = document.createElement("textarea");
+      noteInput.className = "note-input";
+      noteInput.placeholder = "Add notes...";
+      card.appendChild(noteInput);
+    }
+
+    // LOAD (READ)
+    if (DataManager.isFavorite(agent)) {
+      card.classList.add("favorited");
+      favBtn.textContent = "★ Favorited";
+    }
+
+    const noteText = DataManager.getNote(agent);
+    if (noteText) {
+      noteInput.value = noteText;
+    }
+
+    // Favorite button - CREATE/DELETE
+    favBtn.addEventListener("click", () => {
+      if (DataManager.isFavorite(agent)) {
+        DataManager.removeFavorite(agent);
+        card.classList.remove("favorited");
+        favBtn.textContent = "☆ Favorite";
+      } else {
+        DataManager.addFavorite(agent);
+        card.classList.add("favorited");
+        favBtn.textContent = "★ Favorited";
+      }
+      sortCards();
+    });
+
+    // Notes textarea - CREATE/UPDATE
+    noteInput.addEventListener("input", () => {
+      DataManager.updateNote(agent, noteInput.value);
+    });
+
+    // Clear notes button - DELETE
+    clearBtn.addEventListener("click", () => {
+      if (confirm(`Clear notes for ${agent}?`)) {
+        DataManager.clearNote(agent);
+        noteInput.value = "";
+      }
+    });
+  });
+
+  function sortCards() {
+    const cardsArray = Array.from(cards);
+    const favorites = DataManager.getAllFavorites();
+
+    cardsArray.sort((a, b) => {
+      return favorites.includes(b.dataset.agent) - favorites.includes(a.dataset.agent);
+    });
+
+    cardsArray.forEach(card => grid.appendChild(card));
+  }
+
+  sortCards();
+
+  // Expose DataManager globally for debugging/manual operations
+  window.ValorantDataManager = DataManager;
+});
